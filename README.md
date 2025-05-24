@@ -1,2 +1,1 @@
-# Imenik-v02
-Sada je moguce da program ispise sve kontakte u terminalu.
+Samo promenite lokaciju fajla, jer moze da izabacuje grsku, jer je podeseno za moj pc.
