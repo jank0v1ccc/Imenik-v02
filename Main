@@ -17,16 +17,20 @@ public class ImenikV02 {
             String i = scanner.next();
             System.out.println("unesite br. telefona");
             String t = scanner.next();
-            System.out.println("unesite email");
+            System.out.println("unesite email u slucaju da neznate email unesite /");
             String e = scanner.next();
             while (true) {
-                String p = "[A-Za-z0-9+.]+@[A-Za-z0-9+.]+\\.[A-Za-z]{2,4}";
-                boolean m = Pattern.matches(p, e);
-                if(m==true){
+                if(e.equals("/")){
                     break;
                 }else {
-                    System.out.println("pogresno unet email");
-                    e = scanner.next();
+                    String p = "[A-Za-z0-9+.]+@[A-Za-z0-9+.]+\\.[A-Za-z]{2,4}";
+                    boolean m = Pattern.matches(p, e);
+                    if (m == true) {
+                        break;
+                    } else {
+                        System.out.println("pogresno unet email probajte ponovo");
+                        e = scanner.next();
+                    }
                 }
             }
             System.out.println("ispisuje");
@@ -34,9 +38,9 @@ public class ImenikV02 {
                 writer.write("Ime: "+i+" Br. telefona: "+t+" Email: "+e+"\n");
                 System.out.println("ispisano");
                 writer.close();
-            }catch(IOException j){
+            }catch(IOException er){
                 System.out.println("greska");
-                j.printStackTrace();
+                er.printStackTrace();
             }
         } else if (o.equals("1")||o.equals("procitati")) {
             try(FileInputStream fs = new FileInputStream("C:\\Users\\Milan\\intelijfiletxt\\Kontakti1.txt")){
