@@ -1,0 +1,46 @@
+import java.util.*;
+import java.io.*;
+
+public class ImenikV02 {
+    public static void main(String[] args) throws IOException {
+
+        FileWriter writer = new FileWriter("C:\\Users\\Milan\\intelijfiletxt\\Kontakti.txt",true);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("""
+                sta zelis da uradis
+                1.da procitas sve kontakte
+                2.da dodas kontakt""");
+        String o = scanner.next();
+        if (o.equals("2")||o.equals("dodati")) {
+            System.out.println("unesite ime kontakta ");
+            String i = scanner.next();
+            System.out.println("unesite br. telefona");
+            String t = scanner.next();
+            System.out.println("unesite email");
+            String e = scanner.next();
+            System.out.println("ispisuje");
+            try {
+                writer.write("Ime: "+i+" Br. telefona: "+t+" Email: "+e+"\n");
+                System.out.println("ispisano");
+                writer.close();
+            }catch(IOException j){
+                System.out.println("greska");
+                j.printStackTrace();
+            }
+        } else if (o.equals("1")||o.equals("procitati")) {
+            try(FileInputStream fs = new FileInputStream("C:\\Users\\Milan\\intelijfiletxt\\Kontakti.txt")){
+                int k = fs.read();
+                while (k!=-1){
+                    System.out.print((char)k);
+                    k = fs.read();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+    }
+}
+
